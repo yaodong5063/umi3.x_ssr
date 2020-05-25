@@ -1,0 +1,32 @@
+@import '~antd/lib/style/themes/default.less';
+.normal {
+  font-family: Georgia, sans-serif;
+  text-align: center;
+}
+
+.layoutHead {
+  background: #fff;
+  padding: 0;
+  &Left {
+    padding-left: 10px;
+  }
+}
+.menuHeader {
+  height: 64px;
+  background: #fff;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+.trigger {
+  font-size: 20px;
+  transition: all 0.3s, padding 0s;
+  cursor: pointer;
+  &:hover {
+    color: @primary-5;
+  }
+}

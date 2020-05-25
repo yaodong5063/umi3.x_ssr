@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "umi dev",   
+    "analyze": "cross-env ANALYZE=1 umi dev",  
+    "build": "umi build",  
+    "serve": "cross-env PORT=5001 serve ./dist",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "antd": "^4.2.0",
+    "axios": "^0.19.2",
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.2.2",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "umi": "^3.2.2",
+    "yorkie": "^2.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2"
+  }
+}
