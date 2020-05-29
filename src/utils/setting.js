@@ -1,5 +1,9 @@
-const host = window.location.host;
-
+let host = '';
+if (!process?.env?.ENV_VAR) {
+  host = 'localhost';
+} else if (process.env.NODE_ENV === 'development') {
+  host = 'localhost';
+}
 //判断是否为本地模式
 export const isLocal = host.includes('localhost');
 

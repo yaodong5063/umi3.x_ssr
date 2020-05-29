@@ -44,10 +44,15 @@ const Url = {
   },
 };
 
-const current_env = location.hostname
-  .match('\\w+.\\w+.(\\w+)')[1]
-  .toUpperCase();
-let globalUrl = {};
+let current_env;
+if (!window && !process.env.ENV_VAR) {
+  current_env = location.hostname.match('\\w+.\\w+.(\\w+)')[1].toUpperCase();
+} else if (process.env.ENV_VAR === 'dev') {
+  current_env = 'INK';
+} else if (process.env.ENV_VAR === 'com' || !process.env.ENV_VAR) {
+  current_env = 'COM';
+}
+
 if (current_env === 'ORG') {
   globalUrl = Url[current_env];
 } else if (current_env === 'LINK') {

@@ -1,4 +1,4 @@
-import { users, logout, menu } from '@/api/test';
+import { users } from '@/api/api';
 
 export default {
   namespace: 'Test',
@@ -6,25 +6,16 @@ export default {
     users: {},
   },
   effects: {
-    //登录
+    //demo
     *users({ payload }, { call, put }) {
       const response = yield call(users, payload);
+
       yield put({
         type: 'responseData',
         payload: {
           users: response.data || {},
         },
       });
-      return response;
-    },
-    //退出
-    *logout({ payload }, { call, put }) {
-      const response = yield call(logout, payload);
-      return response;
-    },
-    //菜单
-    *menu({ payload }, { call, put }) {
-      const response = yield call(menu, payload);
       return response;
     },
   },

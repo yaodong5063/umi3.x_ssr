@@ -123,6 +123,7 @@ export default function request(url, options) {
         message.error(data.message || codeMessage[response.status]);
         return { state: 1, code: 1, data: data };
       }
+
       return data;
     })
     .catch(e => {
