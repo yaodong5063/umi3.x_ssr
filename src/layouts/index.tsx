@@ -1,14 +1,25 @@
 import React, { PureComponent } from 'react';
-
+import { Helmet, connect } from 'umi';
 class BasicLayout extends PureComponent {
   constructor(props: any) {
     super(props);
   }
   render() {
-    const { children, location } = this.props;
-    // console.log(location)
-    return <div>{children}</div>;
+    const { children, location, Test } = this.props;
+    console.log(Test, 555);
+    return (
+      <>
+        <Helmet encodeSpecialCharacters={false}>
+          <html lang="en" data-direction="666" />
+          <title>{Test?.users?.userName}</title>
+        </Helmet>
+        <div>{children}</div>
+      </>
+    );
   }
 }
 
-export default BasicLayout;
+export default connect(({ Test, loading }) => ({
+  Test,
+  loading,
+}))(BasicLayout);

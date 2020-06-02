@@ -97,10 +97,11 @@ export function lettersAndNumbersValidator(rule, value, call) {
 }
 
 function uzStorage() {
-  if (window) {
-    return window.localStorage;
-  } else {
+  try {
+    let d = global;
     return false;
+  } catch (err) {
+    return window.localStorage;
   }
 }
 

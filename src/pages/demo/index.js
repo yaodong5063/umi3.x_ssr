@@ -1,10 +1,8 @@
-import { IGetInitialProps } from 'umi';
 import React from 'react';
-import { connect, history } from 'umi';
-import styles from './index.less';
+import { connect } from 'umi';
 
-class Home extends React.Component {
-  constructor(props: any) {
+class Demo extends React.Component {
+  constructor(props) {
     super(props);
   }
 
@@ -12,20 +10,19 @@ class Home extends React.Component {
     this.test();
   }
 
-  static getInitialProps = (async ctx => {
+  static getInitialProps = async ctx => {
     const { store } = ctx;
-    console.log(ctx);
     let { data, code } = await store.dispatch({
       type: 'Test/users',
     });
 
-    return Promise.resolve({
+    return {
       data: {
         title: 'Hello World',
         name: data.userName,
       },
-    });
-  }) as IGetInitialProps;
+    };
+  };
 
   test = () => {
     const { dispatch } = this.props;
@@ -41,7 +38,6 @@ class Home extends React.Component {
       <div className="pt10">
         <div>{data?.name}</div>
         {data?.title}
-        <button onClick={() => history.push('/demo')}>tiaozhuan</button>
       </div>
     );
   }
@@ -49,4 +45,4 @@ class Home extends React.Component {
 export default connect(({ Test, loading }) => ({
   Test,
   loading,
-}))(Home);
+}))(Demo);

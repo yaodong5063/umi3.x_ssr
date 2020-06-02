@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { message } from 'antd';
-import { history } from 'umi';
+import { history, isBrowser } from 'umi';
 import { httpHost } from './setting.js';
 import { rmStorage, getStorage } from './utils.js';
 
@@ -45,7 +45,12 @@ axios.interceptors.response.use(
  */
 export default function request(url, options) {
   const defaultVal = options.defaultVal || [];
-  const tokenInfo = getStorage('tokenInfo') || {};
+
+  let tokenInfo = {};
+  if (isBrowser()) {
+    tokenInfo = getStorage('tokenInfo') || {};
+  }
+
   const defaultHeaders = tokenInfo.accessToken
     ? {
         Authorization: 'Bearer ' + (tokenInfo.accessToken || ''),
@@ -56,6 +61,7 @@ export default function request(url, options) {
   let submitOpts = {};
 
   let allUrl = (url.includes('http') ? '' : httpHost) + url; // 判断是否带有全链接
+
   if (
     options.method === 'post' ||
     options.method === 'put' ||
