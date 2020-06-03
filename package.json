@@ -2,8 +2,8 @@
   "private": true,
   "scripts": {
     "start": "umi dev",
-    "analyze": "cross-env ANALYZE = 1 umi dev",  
-    "ANALYZE_SSR": "cross-env ANALYZE_SSR = 1 umi dev",  
+    "analyze": "cross-env ANALYZE=1 umi dev",
+    "ANALYZE_SSR": "cross-env ANALYZE_SSR=1 umi dev",
     "build": "cross-env ENV_VAR=dev umi build",
     "build:com": "cross-env ENV_VAR=com umi build",
     "postinstall": "umi generate tmp",
@@ -23,15 +23,19 @@
     ]
   },
   "dependencies": {
+    "antd": "^4.2.0",
     "@umijs/preset-react": "1.x",
-    "@umijs/test": "^3.2.3",
+    "@umijs/test": "^3.2.1",
     "axios": "^0.19.2",
-    "cross-env": "^7.0.2",
+    "express": "^4.17.1",
     "lint-staged": "^10.0.7",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "umi": "^3.2.3",
+    "umi": "^3.2.1",
     "yorkie": "^2.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2"
   }
 }
