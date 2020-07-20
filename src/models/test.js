@@ -9,7 +9,6 @@ export default {
     //demo
     *users({ payload }, { call, put }) {
       const response = yield call(users, payload);
-      console.log(response, 334);
       yield put({
         type: 'responseData',
         payload: {

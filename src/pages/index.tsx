@@ -14,7 +14,6 @@ class Home extends React.Component {
 
   static getInitialProps = (async ctx => {
     const { store } = ctx;
-    console.log(ctx);
     let { data, code } = await store.dispatch({
       type: 'Test/users',
     });
@@ -36,7 +35,6 @@ class Home extends React.Component {
 
   render() {
     const { data, Test } = this.props;
-    console.log(Test, 112);
     return (
       <div className="pt10">
         <div>{data?.name}</div>

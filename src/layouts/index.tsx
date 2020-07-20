@@ -6,7 +6,6 @@ class BasicLayout extends PureComponent {
   }
   render() {
     const { children, location, Test } = this.props;
-    console.log(Test, 555);
     return (
       <>
         <Helmet encodeSpecialCharacters={false}>
