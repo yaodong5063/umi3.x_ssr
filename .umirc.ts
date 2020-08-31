@@ -1,6 +1,9 @@
 import { defineConfig } from 'umi';
 
 export default defineConfig({
+  nodeModulesTransform: {
+    type: 'none',
+  },
   layout:false,
   //routes不配置，为约定式路由，可根据pages里目录自动生成
   // routes: [
@@ -19,8 +22,13 @@ export default defineConfig({
   },
   ssr: {
     // 默认为 true
-    devServerRender: false,
+    devServerRender: true,
   },
+  dva: {},
+  dynamicImport: {
+    // loading: '@/Loading',
+  },
+  exportStatic: { },
   theme: {
     // 'primary-color':'#FFC600'
   },
